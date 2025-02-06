@@ -13,6 +13,10 @@ app.use(express.json())
 const port = process.env.PORT || 5000
 const mongo = process.env.MONGO_URI
 
+app.use('/api/auth', require('./routes/authRoutes'));
+app.use('/api/profile', require('./routes/profileRoutes'));
+app.use('/api/activities', require('./routes/activityRoutes'));
+
 mongoose.connect(mongo)
     .then(() => {
         console.log('Connected to MongoDB');
